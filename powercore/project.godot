@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "TreeState",
+"language": "GDScript",
+"path": "res://Clases/TreeState.gd"
+} ]
+_global_script_class_icons={
+"TreeState": ""
+}
+
 [application]
 
 config/name="powercore"
