@@ -53,4 +53,5 @@ script = ExtResource( 8 )
 [node name="StateDisplayer" parent="." instance=ExtResource( 9 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 current = true

@@ -1,0 +1,23 @@
+[gd_scene format=2]
+
+[node name="Body" type="KinematicBody2D"]
+
+[node name="States" type="Node" parent="."]
+
+[node name="External" type="Node" parent="States"]
+
+[node name="Move" type="Node" parent="States/External"]
+
+[node name="Knocked" type="Node" parent="States/External"]
+
+[node name="Actions" type="Node" parent="States"]
+
+[node name="Target" type="Node" parent="States/Actions"]
+
+[node name="Attack" type="Node" parent="States/Actions"]
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+current = true
