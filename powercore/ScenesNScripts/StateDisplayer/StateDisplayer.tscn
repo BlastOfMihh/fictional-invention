@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ScenesNScripts/StateDisplayer/StateDisplayer.gd" type="Script" id=1]
+
+[node name="StateDisplayer" type="RichTextLabel"]
+margin_right = 218.0
+margin_bottom = 123.0
+text = "asdfadsaf"
+script = ExtResource( 1 )

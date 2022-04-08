@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://ScenesNScripts/CharacterTest/States.gd" type="Script" id=2]
+[ext_resource path="res://ScenesNScripts/CharacterTest/Jump.gd" type="Script" id=3]
+[ext_resource path="res://ScenesNScripts/CharacterTest/Idle.gd" type="Script" id=4]
+[ext_resource path="res://ScenesNScripts/CharacterTest/Movement.gd" type="Script" id=5]
+[ext_resource path="res://ScenesNScripts/CharacterTest/Hungry.gd" type="Script" id=6]
+[ext_resource path="res://ScenesNScripts/CharacterTest/Debufs.gd" type="Script" id=7]
+[ext_resource path="res://ScenesNScripts/CharacterTest/Slowness.gd" type="Script" id=8]
+[ext_resource path="res://ScenesNScripts/StateDisplayer/StateDisplayer.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -20,15 +27,30 @@ shape = SubResource( 1 )
 
 [node name="States" type="Node" parent="."]
 script = ExtResource( 2 )
+active = true
 
 [node name="Movement" type="Node" parent="States"]
+script = ExtResource( 5 )
 
 [node name="Idle" type="Node" parent="States/Movement"]
+script = ExtResource( 4 )
+active = true
 
 [node name="Jump" type="Node" parent="States/Movement"]
+script = ExtResource( 3 )
 
 [node name="Debufs" type="Node" parent="States"]
+script = ExtResource( 7 )
+active = true
 
 [node name="Hungry" type="Node" parent="States/Debufs"]
+script = ExtResource( 6 )
+active = true
 
-[node name="Jump" type="Node" parent="States/Debufs"]
+[node name="Slowness" type="Node" parent="States/Debufs"]
+script = ExtResource( 8 )
+
+[node name="StateDisplayer" parent="." instance=ExtResource( 9 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true

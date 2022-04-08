@@ -24,6 +24,11 @@ config/name="powercore"
 run/main_scene="res://test2D.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+mouse_cursor/custom_image="res://icon.png"
+window/stretch/aspect="keep_height"
+
 [physics]
 
 common/enable_pause_aware_picking=true
