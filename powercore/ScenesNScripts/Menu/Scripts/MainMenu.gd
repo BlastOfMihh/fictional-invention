@@ -46,8 +46,8 @@ func set_current_selection(current_selection):
 	selector_two.text = ""
 	selector_three.text = ""
 	if( current_selection == 0 ):
-		selector_one.text ='->'
+		selector_one.text ='='
 	elif( current_selection == 1 ):
-		selector_two.text ='->'
+		selector_two.text ='='
 	elif( current_selection == 2 ):
-		selector_three.text ='->'
+		selector_three.text ='='
