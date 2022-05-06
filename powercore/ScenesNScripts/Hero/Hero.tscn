@@ -1,0 +1,112 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://ScenesNScripts/Templates/Body.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Monk/png/meditate/meditate_7.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Monk/png/meditate/meditate_6.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Monk/png/1_atk/1_atk_3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Monk/png/1_atk/1_atk_2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Monk/png/meditate/meditate_9.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Monk/png/meditate/meditate_8.png" type="Texture" id=7]
+[ext_resource path="res://ScenesNScripts/Boxes/HitBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://ScenesNScripts/Hero/Idle.gd" type="Script" id=9]
+[ext_resource path="res://ScenesNScripts/Hero/Actions.gd" type="Script" id=10]
+[ext_resource path="res://ScenesNScripts/Hero/Attack.gd" type="Script" id=11]
+[ext_resource path="res://ScenesNScripts/Hero/Knocked.gd" type="Script" id=12]
+[ext_resource path="res://ScenesNScripts/Hero/Externals.gd" type="Script" id=13]
+[ext_resource path="res://ScenesNScripts/StateDisplayer/StateDisplayer.tscn" type="PackedScene" id=14]
+[ext_resource path="res://ScenesNScripts/Hero/Float.gd" type="Script" id=15]
+[ext_resource path="res://ScenesNScripts/Hero/Hero.gd" type="Script" id=16]
+[ext_resource path="res://ScenesNScripts/Hero/Dash.gd" type="Script" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "LightAttack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 6.0
+
+[node name="Hero" type="Node2D"]
+
+[node name="Hero" parent="." instance=ExtResource( 1 )]
+script = ExtResource( 16 )
+
+[node name="States" parent="Hero" index="0"]
+active = true
+
+[node name="Externals" parent="Hero/States" index="0"]
+script = ExtResource( 13 )
+
+[node name="Knocked" parent="Hero/States/Externals" index="0"]
+script = ExtResource( 12 )
+
+[node name="Actions" parent="Hero/States" index="1"]
+script = ExtResource( 10 )
+active = true
+
+[node name="Attack" parent="Hero/States/Actions" index="0"]
+script = ExtResource( 11 )
+
+[node name="Timer" type="Timer" parent="Hero/States/Actions/Attack" index="0"]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[node name="Idle" parent="Hero/States/Actions" index="1"]
+script = ExtResource( 9 )
+active = true
+
+[node name="Float" type="Node" parent="Hero/States/Actions" index="2"]
+script = ExtResource( 15 )
+
+[node name="Dash" type="Node" parent="Hero/States/Actions" index="3"]
+script = ExtResource( 17 )
+
+[node name="Timer" type="Timer" parent="Hero/States/Actions/Dash"]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Hero/Visuals" index="0"]
+position = Vector2( 0, -41 )
+frames = SubResource( 1 )
+animation = "Idle"
+frame = 2
+
+[node name="HitBoxContainer" type="Node2D" parent="Hero"]
+
+[node name="HitBox" parent="Hero/HitBoxContainer" instance=ExtResource( 8 )]
+position = Vector2( 50, 0 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hero/HitBoxContainer/HitBox" index="0"]
+position = Vector2( -20, 0 )
+shape = SubResource( 3 )
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hero"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="Hero"]
+visible = false
+current = true
+
+[node name="StateDisplayer" parent="Hero" instance=ExtResource( 14 )]
+
+[connection signal="timeout" from="Hero/States/Actions/Attack/Timer" to="Hero/States/Actions/Attack" method="_on_Timer_timeout"]
+[connection signal="area_entered" from="Hero/HitBoxContainer/HitBox" to="Hero/States/Actions/Attack" method="_on_HitBox_area_entered"]
+
+[editable path="Hero"]
+[editable path="Hero/HurtBox"]
+[editable path="Hero/HitBoxContainer/HitBox"]

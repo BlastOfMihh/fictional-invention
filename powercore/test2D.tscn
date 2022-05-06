@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ScenesNScripts/Test/Body.gd" type="Script" id=1]
 [ext_resource path="res://Assets/2324583282.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://ScenesNScripts/Hero/Hero.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ScenesNScripts/Templates/Body.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ScenesNScripts/Enemy1/Enemy1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/3450027513.png" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -20,20 +23,25 @@ position = Vector2( 1, 0 )
 shape = SubResource( 2 )
 
 [node name="2324583282" type="Sprite" parent="."]
-position = Vector2( 110, 39 )
+position = Vector2( 111, 131 )
 texture = ExtResource( 2 )
 
 [node name="3450027513" type="Sprite" parent="."]
 position = Vector2( 121, -9 )
 texture = ExtResource( 16 )
 
-[node name="Hero" parent="." instance=ExtResource( 5 )]
-
-[node name="Camera2D" parent="Hero" index="2"]
-current = false
-
 [node name="Body" parent="." instance=ExtResource( 5 )]
+position = Vector2( -49, -8 )
 script = ExtResource( 1 )
 
-[editable path="Hero"]
+[node name="Sprite" type="Sprite" parent="Body/Visuals" index="0"]
+scale = Vector2( 0.526195, 0.567902 )
+texture = ExtResource( 3 )
+
+[node name="Hero" parent="." instance=ExtResource( 4 )]
+
+[node name="Enemy1" parent="." instance=ExtResource( 6 )]
+position = Vector2( -26, 50 )
+
 [editable path="Body"]
+[editable path="Body/HurtBox"]

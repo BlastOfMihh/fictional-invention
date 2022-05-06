@@ -8,15 +8,20 @@ onready var pr:=get_parent()
 var root:=false
 var state_dic={}
 
+
 func _ready():
-	while pr.has_method("_enter_state")==true:
+	while is_state(pr)==true:
 		pr=pr.get_parent()
+	# print(pr.name)
 	#SM
 	for ch in get_children():
-		state_dic[ch.name]=ch
+		if is_state(ch):
+			state_dic[ch.name]=ch
 	#ENDSM
+	#S
 	if active:
 		_enter_state()
+
 
 # S functions
 func _deactivate():
@@ -29,7 +34,7 @@ func _enter_state():
 func _exit_state():
 	pass
 func _get_transition():
-	pass
+	return null
 
 func _during_state(_delta):
 	# print(pr)
@@ -40,21 +45,27 @@ func _during_state(_delta):
 	pass
 
 func _physics_process(delta):
+	if root: print(name)
 	if active:
 		#S
-		_during_state(delta);
+#		_during_state(delta);
 		#SM
 		for x in state_dic.values():
-			var trans=x._get_transition();
-			if trans!=null:
-				for y in trans:
-					if y=="_exit":
-						request_deactivate(x)
-					else:
-						request_activate(y)
-
+			if x.active:
+				if x.active: x._during_state(delta)
+				var trans=x._get_transition();
+				if trans!=null:
+					for y in trans:
+						if y=="_exit":
+							request_deactivate(x.name)
+						else:
+							request_activate(y)
+#				print(x.name)
 
 # SM functions
+func is_state(x)->bool:
+	return x.has_method("is_state")
+
 func request_activate(st:String)->void:
 	var state=state_dic[st]
 	state._activate()
@@ -67,3 +78,12 @@ func request_deactivate(st:String)->void:
 
 func is_active(st:String)->bool:
 	return state_dic[st].active==true
+
+
+
+# func clearDfs( x ):
+# 	for y in x.get_children()
+# 	pass
+
+# func clear():
+# 	for y in get_children():
