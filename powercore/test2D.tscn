@@ -8,7 +8,7 @@
 [ext_resource path="res://ScenesNScripts/Enemy1/Enemy1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/3450027513.png" type="Texture" id=16]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 111, 10 )
 
 [node name="test2D" type="Node2D"]
@@ -20,7 +20,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 1, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="2324583282" type="Sprite" parent="."]
 position = Vector2( 111, 131 )
