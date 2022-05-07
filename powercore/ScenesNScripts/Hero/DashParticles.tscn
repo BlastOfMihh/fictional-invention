@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+lifetime_randomness = 0.2
+trail_divisor = 3
+emission_shape = 1
+emission_sphere_radius = 7.45
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = -21.88
+radial_accel_random = 0.95
+color = Color( 1, 0.984314, 0, 1 )
+hue_variation = 0.1
+hue_variation_random = 0.33
+
+[node name="DashParticles" type="Particles2D"]
+amount = 40
+randomness = 1.0
+local_coords = false
+process_material = SubResource( 1 )
