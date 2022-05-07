@@ -42,7 +42,6 @@ mouse_cursor/custom_image="res://Assets/cursors/cursor_default.png"
 window/stretch/mode="2d"
 window/stretch/aspect="keep_height"
 
-<<<<<<< HEAD
 [input]
 
 Attack={
@@ -87,11 +86,6 @@ Dash={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemies"
 2d_physics/layer_4="Collectables"
-=======
-[global]
-
-input=false
->>>>>>> f75f25f60dd84684f4a5a6a763e5cc0e1ce7ce91
 
 [physics]
 
