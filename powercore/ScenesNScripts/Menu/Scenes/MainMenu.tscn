@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ScenesNScripts/Menu/Scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/menu assets/terminator.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/Adventurer.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://ScenesNScripts/Paralax_Background/ParallaxBackground.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -40,6 +41,7 @@ anchor_bottom = 1.0
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 color = Color( 0.121569, 0.121569, 0.121569, 1 )
@@ -151,3 +153,5 @@ text = "Exit"
 position = Vector2( 901.106, 105.022 )
 scale = Vector2( 3.50184, 2.64234 )
 texture = ExtResource( 2 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
