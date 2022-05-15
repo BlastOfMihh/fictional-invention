@@ -1,29 +1,27 @@
 extends TreeState
 
-var timer:Timer
+var projectile_tscn=preload("res://ScenesNScripts/Enemy1/Projectile/Projectile.tscn")
 
 func _ready():
-	pass
+	yield(get_tree(),"idle_frame")
 
 var finished:=false
 
 func done():
 	finished=true
 
+
 func _enter_state():
 	pr.sprite.play("Attack")
-	timer=Timer.new()
-	timer.wait_time=pr.attack_speed
-	timer.one_shot=true
-	add_child(timer)
-	timer.start()
-	timer.connect("timeout", self, "done")
+	var projectile=projectile_tscn.instance()
+	projectile.dir=(pr.target.global_position-pr.global_position).normalized()
+	pr.get_parent().add_child(projectile)
+	projectile.global_position=pr.global_position
 #	yield(timer, "timeout")
-	
-	pass
+
 func _exit_state():
-	timer.queue_free()
 	pass
+
 func _get_transition():
 	if finished==true:
 		finished=false
@@ -33,3 +31,8 @@ func _get_transition():
 func _during_state(_delta):
 	pass
 
+
+
+func _on_AnimatedSprite_animation_finished():
+	finished=true
+	pass # Replace with function body.

@@ -21,7 +21,9 @@ func _exit_state():
 	pass
 
 func _get_transition():
-	if timer.time_left==0:
+	if pr.health<=0:
+		return ["Die"]
+	elif timer.time_left==0:
 		return ["_exit"]
 	return null
 

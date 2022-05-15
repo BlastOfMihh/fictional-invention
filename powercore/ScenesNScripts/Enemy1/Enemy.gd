@@ -9,4 +9,4 @@ onready var visuals:=$Visuals
 var health:=100
 var target=null
 export var attack_range=160
-export var attack_speed:float=1
+export var attack_speed:float=1.0
