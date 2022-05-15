@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/new/Extrude.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Story1.gd" type="Script" id=2]
+[ext_resource path="res://Assets/menu assets/stanga_dreapta.png" type="Texture" id=3]
+[ext_resource path="res://ScenesNScripts/Paralax_Background/ParallaxBackground.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[node name="Story1" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+script = ExtResource( 2 )
+
+[node name="StangaDreapta" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 40.4544, 512.69 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+
+[node name="Label2" type="Label" parent="StangaDreapta"]
+margin_left = 22.9117
+margin_top = -8.3427
+margin_right = 118.912
+margin_bottom = 7.6573
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 2 )
+text = "to navigate"
+
+[node name="Label3" type="Label" parent="StangaDreapta"]
+margin_left = 13.4832
+margin_top = 13.126
+margin_right = 93.4832
+margin_bottom = 29.126
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 2 )
+text = "to close"
+
+[node name="Label" type="RichTextLabel" parent="."]
+margin_left = 117.0
+margin_top = 80.0
+margin_right = 523.0
+margin_bottom = 252.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/normal_font = SubResource( 3 )
+text = "caca"
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]

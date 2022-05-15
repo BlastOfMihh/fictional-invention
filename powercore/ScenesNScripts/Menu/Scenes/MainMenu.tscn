@@ -152,6 +152,7 @@ texture = ExtResource( 2 )
 [node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 
 [node name="SagetiEnter" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.533333 )
 position = Vector2( 767.573, 444.785 )
 rotation = -0.0872665
 scale = Vector2( 2, 2 )
