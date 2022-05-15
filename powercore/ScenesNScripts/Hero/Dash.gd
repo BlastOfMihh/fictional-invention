@@ -16,7 +16,8 @@ func _get_transition():
 	if timer.time_left==0:
 		return ["_exit", "Float"]
 	if Input.is_action_just_pressed("Dash"):
-		return ["_exit", "Attack"]
+#		return ["_exit", "Attack"]
+		return [ "Attack"]
 	return null
 
 func _during_state(_delta):
