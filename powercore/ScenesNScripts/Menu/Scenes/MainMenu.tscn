@@ -47,31 +47,31 @@ margin_right = 1024.0
 margin_bottom = 600.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 218.0
+margin_left = 180.0
 margin_top = 32.0
-margin_right = 806.0
+margin_right = 844.0
 margin_bottom = 568.0
 custom_constants/separation = 275
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
-margin_right = 588.0
+margin_right = 664.0
 margin_bottom = 100.0
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer"]
-margin_right = 588.0
+margin_right = 664.0
 margin_bottom = 100.0
 custom_fonts/font = SubResource( 1 )
-text = "Redemption"
+text = "-Redemption-"
 uppercase = true
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 375.0
-margin_right = 588.0
+margin_right = 664.0
 margin_bottom = 536.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
-margin_left = 179.0
-margin_right = 408.0
+margin_left = 217.0
+margin_right = 446.0
 margin_bottom = 161.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
