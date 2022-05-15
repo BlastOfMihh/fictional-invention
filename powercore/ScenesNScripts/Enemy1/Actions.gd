@@ -20,7 +20,7 @@ func _get_transition():
 
 func _during_state(_delta):
 	
-	pr.vel=lerp(pr.vel, Vector2.ZERO, 0.0281)
+	pr.vel=lerp(pr.vel, Vector2.ZERO, Globals.lerp_p)
 
 	pass
 

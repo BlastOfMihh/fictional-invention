@@ -12,6 +12,8 @@ script = ExtResource( 1 )
 
 [node name="Knocked" type="Node" parent="States/Externals"]
 
+[node name="Die" type="Node" parent="States/Externals"]
+
 [node name="Actions" type="Node" parent="States"]
 
 [node name="Attack" type="Node" parent="States/Actions"]

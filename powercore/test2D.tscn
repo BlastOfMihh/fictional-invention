@@ -1,54 +1,21 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://ScenesNScripts/Test/Body.gd" type="Script" id=1]
-[ext_resource path="res://Assets/2324583282.png" type="Texture" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://ScenesNScripts/Hero/Hero.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ScenesNScripts/Templates/Body.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ScenesNScripts/Enemy1/Enemy1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ScenesNScripts/Paralax_Background/ParallaxBackground.tscn" type="PackedScene" id=7]
-[ext_resource path="res://ScenesNScripts/PlanetaUnu/Planeta1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/3450027513.png" type="Texture" id=16]
+[ext_resource path="res://ScenesNScripts/PlanetCage/PlanetCage.tscn" type="PackedScene" id=9]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 111, 10 )
-
-[node name="test2D" type="Node2D"]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 1, 0 )
-shape = SubResource( 1 )
-
-[node name="2324583282" type="Sprite" parent="."]
-position = Vector2( 111, 131 )
-texture = ExtResource( 2 )
-
-[node name="3450027513" type="Sprite" parent="."]
-position = Vector2( 121, -9 )
-texture = ExtResource( 16 )
-
-[node name="Body" parent="." instance=ExtResource( 5 )]
-position = Vector2( -49, -8 )
-script = ExtResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="Body/Visuals" index="0"]
-scale = Vector2( 0.526195, 0.567902 )
-texture = ExtResource( 3 )
+[node name="test" type="Node2D"]
 
 [node name="Hero" parent="." instance=ExtResource( 4 )]
-
-[node name="Enemy1" parent="." instance=ExtResource( 6 )]
-position = Vector2( -26, 50 )
+position = Vector2( -54, 137 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]
 
-[node name="Node2D" parent="." instance=ExtResource( 8 )]
-position = Vector2( 416.529, 148.332 )
+[node name="PlanetCage" parent="." instance=ExtResource( 9 )]
+position = Vector2( 368, 131 )
 
-[editable path="Body"]
-[editable path="Body/HurtBox"]
+[node name="Cage" parent="PlanetCage" index="1"]
+scale = Vector2( 22.8938, 24.6754 )
+
+[editable path="PlanetCage"]
+[editable path="PlanetCage/PlanetBody"]

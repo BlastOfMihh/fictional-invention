@@ -40,6 +40,8 @@ radius = 6.0
 [node name="Hero" type="Node2D"]
 
 [node name="Hero" parent="." instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 41
 script = ExtResource( 16 )
 
 [node name="States" parent="Hero" index="0"]
@@ -77,21 +79,22 @@ script = ExtResource( 17 )
 wait_time = 0.5
 one_shot = true
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Hero/Visuals" index="0"]
+[node name="DashParticles" parent="Hero/Visuals" index="0" instance=ExtResource( 18 )]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Hero/Visuals" index="1"]
 position = Vector2( 0, -41 )
 frames = SubResource( 1 )
 animation = "Idle"
 frame = 2
 
-[node name="HitBoxContainer" type="Node2D" parent="Hero"]
+[node name="HitBoxContainer" type="Position2D" parent="Hero"]
 
 [node name="HitBox" parent="Hero/HitBoxContainer" instance=ExtResource( 8 )]
-position = Vector2( 50, 0 )
-collision_layer = 4
+position = Vector2( 25, 0 )
+collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hero/HitBoxContainer/HitBox" index="0"]
-position = Vector2( -20, 0 )
 shape = SubResource( 3 )
 disabled = true
 
@@ -104,8 +107,6 @@ visible = false
 current = true
 
 [node name="StateDisplayer" parent="Hero" instance=ExtResource( 14 )]
-
-[node name="DashParticles" parent="Hero" instance=ExtResource( 18 )]
 
 [connection signal="timeout" from="Hero/States/Actions/Attack/Timer" to="Hero/States/Actions/Attack" method="_on_Timer_timeout"]
 [connection signal="area_entered" from="Hero/HitBoxContainer/HitBox" to="Hero/States/Actions/Attack" method="_on_HitBox_area_entered"]

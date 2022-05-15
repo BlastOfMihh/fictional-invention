@@ -1,20 +1,24 @@
 extends TreeState
 
+var rumble:bool=false
 
 func _ready():
 	pass
 
 func _enter_state():
-	yield(get_tree(), "idle_frame")
-#	if pr.sprite!=null : 
-	pr.sprite.play("Idle")
-
+	pass
 func _exit_state():
 	pass
 func _get_transition():
-#	return ["_exit", "Chase"]
+	if rumble:
+		rumble=false
+		return ["_exit", "Rumble"]
 	return null
 
 func _during_state(_delta):
 	pass
 
+
+
+func _on_ActivationArea_body_entered(_body):
+	rumble=true
