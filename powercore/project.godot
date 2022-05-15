@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="powercore"
-run/main_scene="res://test2D.tscn"
+run/main_scene="res://ScenesNScripts/Menu/Scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

@@ -17,5 +17,8 @@ position = Vector2( 728, 279 )
 [node name="Cage" parent="PlanetCage" index="1"]
 scale = Vector2( 60.7211, 58.4179 )
 
+[node name="AnimatedSprite" parent="PlanetCage/PlanetBody/Visuals" index="0"]
+frame = 49
+
 [editable path="PlanetCage"]
 [editable path="PlanetCage/PlanetBody"]

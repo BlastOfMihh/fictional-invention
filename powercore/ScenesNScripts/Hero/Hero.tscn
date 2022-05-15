@@ -21,14 +21,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
-"loop": false,
-"name": "LightAttack",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "LightAttack",
 "speed": 5.0
 } ]
 
@@ -83,6 +83,7 @@ one_shot = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Hero/Visuals" index="1"]
 position = Vector2( 0, -41 )
+z_index = 1
 frames = SubResource( 1 )
 animation = "Idle"
 frame = 2
