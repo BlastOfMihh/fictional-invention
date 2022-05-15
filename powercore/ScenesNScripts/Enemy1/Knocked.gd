@@ -8,7 +8,8 @@ func _ready():
 	pass
 
 func _enter_state():
-	print("knocked")
+	pr.health-=rand_range(30,45)
+#	print("knocked")
 	pr.states.request_deactivate("Actions")
 	pr.sprite.play("Knocked")
 #	timer.time_left=int(timer.wait_time)

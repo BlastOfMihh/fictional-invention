@@ -12,10 +12,10 @@ position = Vector2( -54, 137 )
 [node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]
 
 [node name="PlanetCage" parent="." instance=ExtResource( 9 )]
-position = Vector2( 368, 131 )
+position = Vector2( 728, 279 )
 
 [node name="Cage" parent="PlanetCage" index="1"]
-scale = Vector2( 22.8938, 24.6754 )
+scale = Vector2( 60.7211, 58.4179 )
 
 [editable path="PlanetCage"]
 [editable path="PlanetCage/PlanetBody"]

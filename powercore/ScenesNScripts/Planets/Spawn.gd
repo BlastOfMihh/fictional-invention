@@ -24,11 +24,12 @@ func _enter_state():
 		monster.queue_free()
 		
 		var timer = Timer.new()
-		timer.wait_time=0.2
+		timer.wait_time=0.5
 		add_child(timer)
 		timer.start()
 		timer.one_shot=true
-		yield()
+		yield(timer,"timeout")
+		timer.queue_free()
 		pr.get_parent().add_child(real_monster)
 	
 	pass
