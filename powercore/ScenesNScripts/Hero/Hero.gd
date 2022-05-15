@@ -6,6 +6,9 @@ onready var hit_shape=$HitBoxContainer/HitBox/CollisionShape2D
 onready var hit_box_container=$HitBoxContainer
 onready var visuals=$Visuals
 
+func _ready():
+	Globals.player=self
+
 var move_action_strs=["Left", "Up", "Down", "Right"]
 
 func move_actions()->bool:

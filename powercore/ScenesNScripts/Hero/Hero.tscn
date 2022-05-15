@@ -41,7 +41,7 @@ radius = 6.0
 
 [node name="Hero" parent="." instance=ExtResource( 1 )]
 collision_layer = 2
-collision_mask = 9
+collision_mask = 41
 script = ExtResource( 16 )
 
 [node name="States" parent="Hero" index="0"]
@@ -87,15 +87,14 @@ frames = SubResource( 1 )
 animation = "Idle"
 frame = 2
 
-[node name="HitBoxContainer" type="Node2D" parent="Hero"]
+[node name="HitBoxContainer" type="Position2D" parent="Hero"]
 
 [node name="HitBox" parent="Hero/HitBoxContainer" instance=ExtResource( 8 )]
-position = Vector2( 50, 0 )
-collision_layer = 4
+position = Vector2( 25, 0 )
+collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hero/HitBoxContainer/HitBox" index="0"]
-position = Vector2( -20, 0 )
 shape = SubResource( 3 )
 disabled = true
 

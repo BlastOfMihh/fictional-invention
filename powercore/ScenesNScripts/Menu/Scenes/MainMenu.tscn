@@ -1,37 +1,15 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ScenesNScripts/Menu/Scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/menu assets/terminator.png" type="Texture" id=2]
+[ext_resource path="res://ScenesNScripts/Menu/Scenes/Button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ScenesNScripts/Paralax_Background/ParallaxBackground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/menu assets/sageti_enter.png" type="Texture" id=5]
 [ext_resource path="res://Fonts/new/Extrude.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://test2D.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 50
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 50
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 50
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 50
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=6]
-size = 50
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=7]
-size = 50
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=8]
@@ -41,6 +19,7 @@ font_data = ExtResource( 6 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+first_scene = ExtResource( 7 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 margin_right = 1024.0
@@ -53,98 +32,36 @@ margin_right = 806.0
 margin_bottom = 568.0
 custom_constants/separation = 275
 
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+[node name="Title" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_right = 588.0
 margin_bottom = 100.0
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Title"]
 margin_right = 588.0
 margin_bottom = 100.0
 custom_fonts/font = SubResource( 1 )
 text = "Redemption"
 uppercase = true
 
-[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 375.0
 margin_right = 588.0
 margin_bottom = 536.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
-margin_left = 179.0
-margin_right = 408.0
-margin_bottom = 161.0
+[node name="Start" parent="CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
 
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_right = 229.0
-margin_bottom = 51.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
-margin_left = 16.0
-margin_right = 212.0
-margin_bottom = 51.0
-
-[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
-margin_right = 41.0
-margin_bottom = 51.0
-rect_min_size = Vector2( 13, 0 )
-custom_fonts/font = SubResource( 2 )
-text = "->"
-
-[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
-margin_left = 45.0
-margin_right = 196.0
-margin_bottom = 51.0
-rect_min_size = Vector2( 151, 0 )
-custom_fonts/font = SubResource( 3 )
-text = "Start"
-
-[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+[node name="HowTo" parent="CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 55.0
-margin_right = 229.0
 margin_bottom = 106.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
-margin_right = 229.0
-margin_bottom = 51.0
+[node name="Text" parent="CenterContainer/VBoxContainer/VBoxContainer/HowTo/HBoxContainer" index="1"]
+text = "How 2"
 
-[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
-margin_right = 41.0
-margin_bottom = 51.0
-rect_min_size = Vector2( 13, 0 )
-custom_fonts/font = SubResource( 4 )
-text = "->"
-
-[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
-margin_left = 45.0
-margin_right = 229.0
-margin_bottom = 51.0
-rect_min_size = Vector2( 151, 0 )
-custom_fonts/font = SubResource( 5 )
-text = "How to"
-
-[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+[node name="Exit" parent="CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 110.0
-margin_right = 229.0
 margin_bottom = 161.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
-margin_left = 16.0
-margin_right = 212.0
-margin_bottom = 51.0
-
-[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
-margin_right = 41.0
-margin_bottom = 51.0
-rect_min_size = Vector2( 13, 0 )
-custom_fonts/font = SubResource( 6 )
-text = "->"
-
-[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
-margin_left = 45.0
-margin_right = 196.0
-margin_bottom = 51.0
-rect_min_size = Vector2( 151, 0 )
-custom_fonts/font = SubResource( 7 )
+[node name="Text" parent="CenterContainer/VBoxContainer/VBoxContainer/Exit/HBoxContainer" index="1"]
 text = "Exit"
 
 [node name="terminator" type="Sprite" parent="."]
@@ -156,9 +73,9 @@ texture = ExtResource( 2 )
 [node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 
 [node name="SagetiEnter" type="Sprite" parent="."]
-position = Vector2( 767.573, 444.785 )
+position = Vector2( 95.9999, 513 )
 rotation = -0.0872665
-scale = Vector2( 2, 2 )
+scale = Vector2( 1.31242, 1.31242 )
 texture = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="SagetiEnter"]
@@ -176,3 +93,7 @@ margin_right = 93.6759
 margin_bottom = 22.2433
 custom_fonts/font = SubResource( 8 )
 text = "to select"
+
+[editable path="CenterContainer/VBoxContainer/VBoxContainer/Start"]
+[editable path="CenterContainer/VBoxContainer/VBoxContainer/HowTo"]
+[editable path="CenterContainer/VBoxContainer/VBoxContainer/Exit"]

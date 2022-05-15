@@ -10,12 +10,12 @@ var direction =Vector2(0,1)
 onready var paralax=$ParallaxBackground
 
 
-const first_scene = preload("res://ScenesNScripts/CharacterTest/Character.tscn")
-const second_scene = preload("res://ScenesNScripts/CharacterTest/Character.tscn")
+export var first_scene = preload("res://ScenesNScripts/CharacterTest/Character.tscn")
+export var second_scene = preload("res://ScenesNScripts/CharacterTest/Character.tscn")
 
-onready var selector_one = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Selector
-onready var selector_two = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Selector
-onready var selector_three = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer/Selector
+onready var selector_one = $CenterContainer/VBoxContainer/VBoxContainer/Start/HBoxContainer/Selector
+onready var selector_two = $CenterContainer/VBoxContainer/VBoxContainer/HowTo/HBoxContainer/Selector
+onready var selector_three = $CenterContainer/VBoxContainer/VBoxContainer/Exit/HBoxContainer/Selector
 
 var current_selection =-1
 

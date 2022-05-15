@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://ScenesNScripts/Hero/Hero.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ScenesNScripts/Enemy1/Enemy1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ScenesNScripts/Paralax_Background/ParallaxBackground.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ScenesNScripts/PlanetCage/PlanetCage.tscn" type="PackedScene" id=9]
 
@@ -9,9 +8,6 @@
 
 [node name="Hero" parent="." instance=ExtResource( 4 )]
 position = Vector2( -54, 137 )
-
-[node name="Enemy1" parent="." instance=ExtResource( 6 )]
-position = Vector2( -26, 50 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]
 

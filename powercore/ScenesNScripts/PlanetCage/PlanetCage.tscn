@@ -75,6 +75,9 @@ margin_bottom = 33.0
 
 [node name="PlanetBody" parent="." instance=ExtResource( 7 )]
 
+[node name="Spawn" parent="PlanetBody/States" index="0"]
+spawn_count = 3
+
 [connection signal="body_entered" from="Cage/ActivationArea" to="States/Idle" method="_on_ActivationArea_body_entered"]
 
 [editable path="PlanetBody"]

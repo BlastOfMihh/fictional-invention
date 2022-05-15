@@ -1,0 +1,21 @@
+#+TITLE: Plan
+
+* Implement
+** [ ] EnemyCage
+*** [ ] enemy
+**** [ ] fix enemy collisions
+**** [-] make enemy chase the player
+**** [ ] take damage
+***** [ ] die
+***** [ ] enemy healthbar
+**** [ ] attack
+*** [ ] planetEnemy
+**** [ ] resolve the states
+**** [ ] take damage only from dashes
+*** [ ] Cutscenes
+**** [ ] enter cosmin's story
+** [ ] Hero
+*** [ ] Take damage
+**** [ ] Die
+**** [ ] HealthBarUI
+**** [ ]
